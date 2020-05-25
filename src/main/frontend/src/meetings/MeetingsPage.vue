@@ -27,7 +27,7 @@
         data() {
             return {
 				//meetings: []
-                meetings: this.$http.get('meetings')
+                meetings: this.$http.get('meetings').then(response => copnsole.log(response.body))
             };
         },
         methods: {
