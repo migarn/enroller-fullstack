@@ -26,7 +26,8 @@
         props: ['username'],
         data() {
             return {
-                meetings: []
+				//meetings: []
+                meetings: this.$http.get('meetings')
             };
         },
         methods: {
