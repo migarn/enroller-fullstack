@@ -1,4 +1,8 @@
 <template>
+	
+	<div>Jestem divem do usunięcia</div>
+	
+	
   <table v-if="meetings.length > 0">
     <thead>
     <tr>
