@@ -3,7 +3,8 @@
 	// do usunięcia
 	<div v-if="meetings.length > 0">Meetings.length = {{ meetings.length }}</div>
 	// do usunięcia
-	
+
+<div>	
   <table v-if="meetings.length > 0"> 
     <thead>
     <tr>
@@ -37,12 +38,13 @@
     </tr>
     </tbody>
   </table>
+  </div>
   
   
   
   // do usunięcia
-  <div>
-    <table v-if="meetings.length > 0"> 
+  <div v-if="meetings.length > 0">
+    <table> 
     <thead>
     <tr>
       <th>Nazwa spotkania</th>
