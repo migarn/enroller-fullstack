@@ -31,7 +31,7 @@
         },
         methods: {
             addNewMeeting(meeting) {
-				// to dodane
+				// to dodane 
 				this.$http.post('meetings', meeting);
                 //this.meetings.push(meeting);
             },
