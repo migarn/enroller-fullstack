@@ -9,7 +9,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr v-for="meeting in meetings" :key="meeting.name">
+    <tr v-for="meeting in meetings" :key="meeting.title">
       <td>{{ meeting.title }}</td>
       <td>{{ meeting.description }}</td>
       <td>
