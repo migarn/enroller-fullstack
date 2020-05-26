@@ -1,6 +1,6 @@
 <template>
 	<div>Meetings.length = {{ meetings.length }}</div>
-  <table v-if="meetings.length">
+  <table v-if="meetings.length != 0">
     <thead>
     <tr>
       <th>Nazwa spotkania</th>
