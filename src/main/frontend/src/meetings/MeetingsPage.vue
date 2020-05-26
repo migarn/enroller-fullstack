@@ -26,8 +26,7 @@
         props: ['username'],
         data() {
             return {
-				//meetings: []
-                meetings: this.$http.get('meetings').then(response => copnsole.log(response.body))
+				meetings: []
             };
         },
         methods: {
@@ -43,6 +42,9 @@
             deleteMeeting(meeting) {
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
             }
+        },
+		mounted() {
+			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
     }
 </script>
