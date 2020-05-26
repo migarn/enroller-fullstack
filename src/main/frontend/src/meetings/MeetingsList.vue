@@ -1,6 +1,11 @@
 <template>
+	// do usunięcia
 	<div>Meetings.length = {{ meetings.length }}</div>
+	
   <table v-if="meetings.length != 0">
+  
+  <div>div do usuniecia</div>
+  
     <thead>
     <tr>
       <th>Nazwa spotkania</th>
