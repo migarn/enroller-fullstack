@@ -2,7 +2,8 @@
 	// do usunięcia
 	<div>Meetings.length = {{ meetings.length }}</div>
 	
-  <table v-if="meetings.length != 0">
+  <div v-if="meetings.length == 0"></div>
+  <table v-else>
   
   <div>div do usuniecia</div>
   
