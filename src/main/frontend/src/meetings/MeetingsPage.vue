@@ -9,7 +9,8 @@
       Zaplanowane zajęcia ({{ meetings.length }})
     </h3>
 
-    <meetings-list :username="username"
+    <meetings-list :meetings="meetings"
+				   :username="username"
                    @attend="addMeetingParticipant($event)"
                    @unattend="removeMeetingParticipant($event)"
                    @delete="deleteMeeting($event)"></meetings-list>

@@ -1,6 +1,6 @@
 <template>
 	<div>Meetings.length = {{ meetings.length }}</div>
-  <table v-if="meetings.length > 0">
+  <table v-if="meetings.length">
     <thead>
     <tr>
       <th>Nazwa spotkania</th>
@@ -37,14 +37,11 @@
 
 <script>
     export default {
-        props: ['username'],
+        props: ['meetings','username'],
 		data() {
             return {
 				meetings: []
             };
-        },
-		mounted() {
-			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
     }
 </script>
