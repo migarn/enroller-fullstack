@@ -41,6 +41,7 @@
   
   
   // do usunięcia
+  <div>
     <table v-if="meetings.length > 0"> 
     <thead>
     <tr>
@@ -69,6 +70,7 @@
     </tr>
     </tbody>
   </table>
+  </div>
   // do usunięcia
   
   
