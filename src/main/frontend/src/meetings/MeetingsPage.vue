@@ -43,6 +43,7 @@
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
             }
         },
+		// to dodane
 		mounted() {
 			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
