@@ -36,7 +36,12 @@
 
 <script>
     export default {
-        props: ['meetings', 'username'],
+        props: ['username'],
+		data() {
+            return {
+				meetings: []
+            };
+        },
 		mounted() {
 			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
