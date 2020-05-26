@@ -1,8 +1,5 @@
 <template>
-	
-	<div>Jestem divem do usunięcia</div>
-	
-	
+	<div>Meetings.length = {{ meetings.length }}</div>
   <table v-if="meetings.length > 0">
     <thead>
     <tr>
