@@ -1,6 +1,8 @@
 <template>
+
 	// do usunięcia
 	<div v-if="meetings.length > 0">Meetings.length = {{ meetings.length }}</div>
+	// do usunięcia
 	
   <table v-if="meetings.length > 0"> 
     <thead>
@@ -35,6 +37,41 @@
     </tr>
     </tbody>
   </table>
+  
+  
+  
+  // do usunięcia
+    <table v-if="meetings.length > 0"> 
+    <thead>
+    <tr>
+      <th>Nazwa spotkania</th>
+      <th>Opis</th>
+      <th>Uczestnicy</th>
+      <td></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>drzewo</td>
+      <td>jtyjty</td>
+      <td>
+        <ul>
+          <li>
+            jhtjtyjtyjtyjtyj
+          </li>
+        </ul>
+      </td>
+      <td style="text-align: right; min-width: 400px">
+        <button>
+          Zapisz się
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  // do usunięcia
+  
+  
 </template>
 
 <script>
