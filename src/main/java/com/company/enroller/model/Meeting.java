@@ -26,7 +26,7 @@ public class Meeting {
     @Column
     private String date;
 
-    @JsonProperty(access = Access.WRITE_ONLY)
+    @JsonProperty(access = Access.READ_ONLY)
     @ManyToMany(mappedBy = "meetings")
     Set<Participant> participants = new HashSet<>();
 
