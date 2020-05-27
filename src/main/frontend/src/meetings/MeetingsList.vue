@@ -38,11 +38,11 @@
 		data() {
             return {
 				meetings: [],
-				meetingsContent: ""//dodane
+				meetingsContent: ""
             };
         },
 		
-		mounted() {
+		computed() {
 			meetingsContent += 'Meetings: ';
 			var i;
 			for (i = 0; i < this.meetings.length; i++) {
