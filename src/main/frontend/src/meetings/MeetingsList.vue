@@ -39,9 +39,10 @@
         },
 		
 		mounted() {
+			meetingsContent += 'Meetings: ';
 			var i;
 			for (i = 0; i < this.meetings.length; i++) {
-				meetingsContent += this.meetings[i].title;
+				meetingsContent += this.meetings[i];
 			}
 		}
     }
