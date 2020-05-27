@@ -22,9 +22,9 @@
   </table>
   </div>
   
-  //dodane
+
   <h1>Meetings {{ meetingsContent }}</h1>
-  //dodane
+
   
 </template>
 
