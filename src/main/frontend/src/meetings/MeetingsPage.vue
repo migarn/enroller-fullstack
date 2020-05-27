@@ -26,27 +26,28 @@
         props: ['username'],
         data() {
             return {
-				meetings: []
+				meetings: [],
+				componentKey: 0
             };
         },
         methods: {
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
-				this.$forceUpdate();
+				this.componentKey += 1;
                 //this.meetings.push(meeting);
             },
             addMeetingParticipant(meeting) {
                 meeting.participants.push(this.username);
-				this.$forceUpdate();
+				this.componentKey += 1;
             },
             removeMeetingParticipant(meeting) {
                 meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
-				this.$forceUpdate();
+				this.componentKey += 1;
             },
             deleteMeeting(meeting) {
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
-				this.$forceUpdate();
+				this.componentKey += 1;
             }
         },
 		// to dodane
