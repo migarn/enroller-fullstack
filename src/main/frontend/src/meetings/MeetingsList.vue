@@ -2,7 +2,7 @@
 
 <div>
 
-	<h1>Meetings {{ meetingsContent }}</h1>
+	<h1>Meetings.length={{ meetings.length }}, meetings[1]={{ meetings[1] }}</h1>
 	
   <table v-if="meetings.length > 0"> 
     <thead>
