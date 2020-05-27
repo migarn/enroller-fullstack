@@ -20,16 +20,29 @@
     </tr>
     </tbody>
   </table>
-  </div>  
+  </div>
+  
+  //dodane
+  <div>{{ meetingsContent }}</div>
+  //dodane
+  
 </template>
 
 <script>
     export default {
-        props: ['meetings','username', 'key'],
+        props: ['meetings','username'],
 		data() {
             return {
-				meetings: []
+				meetings: [],
+				meetingsContent: ""//dodane
             };
         }
+		
+		mounted() {
+			var i;
+			for (i = 0; i < this.meetings.length; i++) {
+				this.meetings[i].title;
+			}
+		}
     }
 </script>
