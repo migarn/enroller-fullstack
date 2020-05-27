@@ -14,9 +14,9 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>title</td>
-      <td>description</td>
+    <tr v-for="meeting in meetings" :key="meeting.id">
+      <td>{{ meeting.title }}</td>
+      <td>{{ meeting.description }}</td>
       <td>participants
       </td>buttons
 
@@ -40,14 +40,6 @@
 				meetings: [],
 				meetingsContent: ""
             };
-        },
-		
-		computed() {
-			meetingsContent += 'Meetings: ';
-			var i;
-			for (i = 0; i < this.meetings.length; i++) {
-				meetingsContent += this.meetings[i];
-			}
-		}
+        }
     }
 </script>
