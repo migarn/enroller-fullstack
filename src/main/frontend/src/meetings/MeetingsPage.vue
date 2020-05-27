@@ -33,16 +33,20 @@
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
+				this.$forceUpdate();
                 //this.meetings.push(meeting);
             },
             addMeetingParticipant(meeting) {
                 meeting.participants.push(this.username);
+				this.$forceUpdate();
             },
             removeMeetingParticipant(meeting) {
                 meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
+				this.$forceUpdate();
             },
             deleteMeeting(meeting) {
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
+				this.$forceUpdate();
             }
         },
 		// to dodane
