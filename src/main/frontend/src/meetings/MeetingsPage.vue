@@ -11,6 +11,7 @@
 
     <meetings-list :meetings="meetings"
 				   :username="username"
+				   :key="componentKey"
                    @attend="addMeetingParticipant($event)"
                    @unattend="removeMeetingParticipant($event)"
                    @delete="deleteMeeting($event)"></meetings-list>
@@ -34,8 +35,8 @@
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
-				//this.componentKey += 1;
-				this.$router.go(0);
+				this.componentKey += 1;
+				//this.$router.go(0);
                 //this.meetings.push(meeting);
             },
             addMeetingParticipant(meeting) {

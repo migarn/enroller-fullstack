@@ -25,7 +25,7 @@
 
 <script>
     export default {
-        props: ['meetings','username'],
+        props: ['meetings','username', 'key'],
 		data() {
             return {
 				meetings: []
