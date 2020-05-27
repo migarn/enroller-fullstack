@@ -1,9 +1,6 @@
 <template>
 
 <div>
-
-	<h1>Meetings.length={{ meetings.length }}, meetings[1]={{ meetings[1] }}</h1>
-	
   <table v-if="meetings.length > 0"> 
     <thead>
     <tr>
@@ -17,9 +14,16 @@
     <tr v-for="meeting in meetings" :key="meeting.id">
       <td>{{ meeting.title }}</td>
       <td>{{ meeting.description }}</td>
-      <td>participants
-      </td>buttons
-
+      <td></td>
+      <td style="text-align: right; min-width: 400px">
+        <button v-if="meeting.participants.indexOf(username) < 0" class="button-outline"
+                @click="$emit('attend', meeting)">
+          Zapisz się
+        </button>
+        <button v-else class="button-outline" @click="$emit('unattend', meeting)">Wypisz się</button>
+        <button v-if="meeting.participants.length === 0" class="button" @click="$emit('delete', meeting)">
+          Usuń puste spotkanie
+        </button>
       </td>
     </tr>
     </tbody>
@@ -37,8 +41,7 @@
         props: ['meetings','username'],
 		data() {
             return {
-				meetings: [],
-				meetingsContent: ""
+				meetings: []
             };
         }
     }
