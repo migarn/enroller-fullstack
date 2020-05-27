@@ -15,7 +15,6 @@
 
 <script>
     export default {
-		props: ['key'],
         data() {
             return {
                 newMeeting: {participants: []},
@@ -25,7 +24,6 @@
         },
         methods: {
             addNewMeeting() {
-				this.key += 1;
                 this.error = false;
                 if (this.newMeeting.title) {
                     this.$emit('added', this.newMeeting);

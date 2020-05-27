@@ -35,7 +35,7 @@
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
-				this.key += 1;
+				this.$set('key', this.key + 1);
 				//this.$router.go(0);
                 //this.meetings.push(meeting);
             },
