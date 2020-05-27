@@ -31,12 +31,8 @@
         },
         methods: {
             addNewMeeting(meeting) {
-				// to dodane 
 				this.$http.post('meetings', meeting);
 				this.$http.get('meetings').then(response => {this.meetings = response.data});
-				//this.$set('key', this.key + 1);
-				//this.$router.go(0);
-                //this.meetings.push(meeting);
             },
             addMeetingParticipant(meeting) {
                 meeting.participants.push(this.username);
@@ -48,7 +44,6 @@
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
             }
         },
-		// to dodane
 		mounted() {
 			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
