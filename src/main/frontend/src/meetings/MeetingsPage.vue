@@ -33,6 +33,7 @@
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
 				//this.$set('key', this.key + 1);
 				//this.$router.go(0);
                 //this.meetings.push(meeting);
