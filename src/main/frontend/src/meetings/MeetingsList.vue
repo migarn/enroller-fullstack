@@ -36,7 +36,7 @@
 				meetings: [],
 				meetingsContent: ""//dodane
             };
-        }
+        },
 		
 		mounted() {
 			var i;
