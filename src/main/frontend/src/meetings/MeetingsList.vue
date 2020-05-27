@@ -1,5 +1,9 @@
 <template>
-<div>	
+
+<div>
+
+	<h1>Meetings {{ meetingsContent }}</h1>
+	
   <table v-if="meetings.length > 0"> 
     <thead>
     <tr>
@@ -23,7 +27,7 @@
   </div>
   
 
-  <h1>Meetings {{ meetingsContent }}</h1>
+  
 
   
 </template>
