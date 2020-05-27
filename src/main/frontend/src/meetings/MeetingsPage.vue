@@ -1,6 +1,6 @@
 <template>
   <div>
-    <new-meeting-form @added="addNewMeeting($event)"></new-meeting-form>
+    <new-meeting-form :key="key" @added="addNewMeeting($event)"></new-meeting-form>
 
     <span v-if="meetings.length == 0">
                Brak zaplanowanych spotkań.
@@ -11,7 +11,7 @@
 
     <meetings-list :meetings="meetings"
 				   :username="username"
-				   :key="componentKey"
+				   :key="key"
                    @attend="addMeetingParticipant($event)"
                    @unattend="removeMeetingParticipant($event)"
                    @delete="deleteMeeting($event)"></meetings-list>
@@ -28,28 +28,28 @@
         data() {
             return {
 				meetings: [],
-				componentKey: 0
+				key: 0
             };
         },
         methods: {
             addNewMeeting(meeting) {
 				// to dodane 
 				this.$http.post('meetings', meeting);
-				this.componentKey += 1;
+				this.key += 1;
 				//this.$router.go(0);
                 //this.meetings.push(meeting);
             },
             addMeetingParticipant(meeting) {
                 meeting.participants.push(this.username);
-				this.componentKey += 1;
+				this.key += 1;
             },
             removeMeetingParticipant(meeting) {
                 meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
-				this.componentKey += 1;
+				this.key += 1;
             },
             deleteMeeting(meeting) {
                 this.meetings.splice(this.meetings.indexOf(meeting), 1);
-				this.componentKey += 1;
+				this.key += 1;
             }
         },
 		// to dodane
