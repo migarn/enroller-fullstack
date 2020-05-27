@@ -41,7 +41,7 @@
 		mounted() {
 			var i;
 			for (i = 0; i < this.meetings.length; i++) {
-				this.meetings[i].title;
+				meetingsContent += this.meetings[i].title;
 			}
 		}
     }
