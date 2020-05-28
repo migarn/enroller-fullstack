@@ -1,6 +1,8 @@
 package com.company.enroller.persistence;
 
 import com.company.enroller.model.Meeting;
+import com.company.enroller.model.Participant;
+
 import org.hibernate.Query;
 import org.hibernate.Transaction;
 import org.hibernate.classic.Session;
@@ -38,5 +40,13 @@ public class MeetingService {
 		Transaction transaction = this.session.beginTransaction();
 		session.delete(meeting);
 		transaction.commit();
+	}
+	
+	public Participant addParticipant(Meeting meeting, Participant participant) {
+		Transaction transaction = this.session.beginTransaction();
+		meeting.addParticipant(participant);
+		session.merge(meeting);
+		transaction.commit();
+		return participant;
 	}
 }

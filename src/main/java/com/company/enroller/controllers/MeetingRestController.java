@@ -1,6 +1,7 @@
 package com.company.enroller.controllers;
 
 import com.company.enroller.model.Meeting;
+import com.company.enroller.model.Participant;
 import com.company.enroller.persistence.MeetingService;
 import com.company.enroller.persistence.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,23 @@ public class MeetingRestController {
 	    }
 	    meetingService.delete(meeting);
 	    return new ResponseEntity<Meeting>(meeting, HttpStatus.OK); 
+	}
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
+	public ResponseEntity<?> addParticipant(@PathVariable("id") long id, @RequestBody String login) {
+		Meeting meeting = meetingService.findById(id);
+	    if (meeting == null) {
+	    	return new ResponseEntity("Meeting not found.", HttpStatus.NOT_FOUND);
+	    }
+	    ParticipantService participantService = new ParticipantService();
+		Participant participant = participantService.findByLogin(login);
+		if (participant == null) {
+			return new ResponseEntity("Participant not found.", HttpStatus.NOT_FOUND);
+		}
+	    if (meeting.getParticipants().contains(participant)) {
+	    	return new ResponseEntity("Participant already exist on meeting's participants list.", HttpStatus.CONFLICT);
+	    }
+		meetingService.addParticipant(meeting, participant);
+	    return new ResponseEntity<Participant>(participant, HttpStatus.CREATED);
 	}
 }
