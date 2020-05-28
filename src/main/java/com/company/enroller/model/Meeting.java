@@ -1,6 +1,8 @@
 package com.company.enroller.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -24,7 +26,7 @@ public class Meeting {
     @Column
     private String date;
 
-    @JsonIgnore
+    @JsonProperty(access = Access.READ_ONLY)
     @ManyToMany(mappedBy = "meetings")
     Set<Participant> participants = new HashSet<>();
 
@@ -71,5 +73,4 @@ public class Meeting {
     public Collection<Participant> getParticipants() {
         return participants;
     }
-
 }

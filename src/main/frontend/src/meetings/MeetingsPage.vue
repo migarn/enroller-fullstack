@@ -10,11 +10,11 @@
     </h3>
 
     <meetings-list :meetings="meetings"
-                   :username="username"
+				   :username="username"
                    @attend="addMeetingParticipant($event)"
                    @unattend="removeMeetingParticipant($event)"
                    @delete="deleteMeeting($event)"></meetings-list>
-  </div>
+  </div> 
 </template>
 
 <script>
@@ -26,22 +26,32 @@
         props: ['username'],
         data() {
             return {
-                meetings: []
+				meetings: []
             };
         },
         methods: {
             addNewMeeting(meeting) {
-                this.meetings.push(meeting);
+				this.$http.post('meetings', meeting);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             addMeetingParticipant(meeting) {
-                meeting.participants.push(this.username);
+				var link = 'meetings/' + meeting.id;
+                this.$http.post(link, this.username);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             removeMeetingParticipant(meeting) {
-                meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
+				var link = 'meetings/' + meeting.id + '/' + this.username;
+                this.$http.delete(link);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             deleteMeeting(meeting) {
-                this.meetings.splice(this.meetings.indexOf(meeting), 1);
+				var link = 'meetings/' + meeting.id;
+				this.$http.delete(link);
+                this.$http.get('meetings').then(response => {this.meetings = response.data});
             }
+        },
+		mounted() {
+			this.$http.get('meetings').then(response => {this.meetings = response.data});
         }
     }
 </script>
