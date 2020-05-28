@@ -36,10 +36,6 @@
   </table>
   </div>
   
-
-  
-
-  
 </template>
 
 <script>
