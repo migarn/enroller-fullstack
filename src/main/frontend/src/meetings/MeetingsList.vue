@@ -22,7 +22,7 @@
         </ul>
       </td>
       <td style="text-align: right; min-width: 400px">
-        <button v-if="meeting.participants.indexOf(username) < 0" class="button-outline"
+        <button v-if="meeting.participants.findIndex(p => p.login=username) < 0" class="button-outline"
                 @click="$emit('attend', meeting)">
           Zapisz się
         </button>
@@ -40,11 +40,6 @@
 
 <script>
     export default {
-        props: ['meetings','username'],
-		data() {
-            return {
-				meetings: []
-            };
-        }
+        props: ['meetings','username']
     }
 </script>
