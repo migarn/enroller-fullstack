@@ -35,7 +35,9 @@
 				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             addMeetingParticipant(meeting) {
-                meeting.participants.push(this.username);
+				var link = 'meetings/' + meeting.id;
+                this.$http.post(link, this.username);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             removeMeetingParticipant(meeting) {
                 meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
