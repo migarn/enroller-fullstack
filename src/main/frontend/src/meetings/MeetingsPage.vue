@@ -31,7 +31,11 @@
         },
         methods: {
             addNewMeeting(meeting) {
-				this.$http.post('meetings', meeting);
+				this.$http.post('meetings', meeting)
+				    .then(() => {
+                        this.success('Spotkanie dodane.');
+                    })
+                    .catch(response => this.failure('Błąd przy dodawaniu spotkania. Kod odpowiedzi: ' + response.status));
 				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             addMeetingParticipant(meeting) {
@@ -42,7 +46,11 @@
             },
             deleteMeeting(meeting) {
 				var link = 'meetings/' + meeting.id;
-				this.$http.delete(link);
+				this.$http.delete(link)
+					.then(() => {
+                        this.success('Spotkanie usunięte.');
+                    })
+                    .catch(response => this.failure('Błąd przy usuwaniu spotkania. Kod odpowiedzi: ' + response.status));;
                 this.$http.get('meetings').then(response => {this.meetings = response.data});
             }
         },
