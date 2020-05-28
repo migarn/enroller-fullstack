@@ -22,7 +22,7 @@
         </ul>
       </td>
       <td style="text-align: right; min-width: 400px">
-        <button v-if="!meeting.participants.includes(username)" class="button-outline"
+        <button v-if="meeting.participants.findIndex(participant => participant.login='username') < 0" class="button-outline"
                 @click="$emit('attend', meeting)">
           Zapisz się
         </button>
