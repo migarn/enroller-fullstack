@@ -65,4 +65,23 @@ public class MeetingRestController {
 		meetingService.addParticipant(meeting, participant);
 	    return new ResponseEntity<Participant>(participant, HttpStatus.CREATED);
 	}
+	
+	@RequestMapping(value = "/{id}/{participant_id}", method = RequestMethod.DELETE)
+	public ResponseEntity<?> deleteParticipant(@PathVariable("id") long id, @PathVariable("participant_id") String login) {
+	    Meeting meeting = meetingService.findById(id);
+	    if (meeting == null) { 
+	    	return new ResponseEntity("Participant not found.", HttpStatus.NOT_FOUND);
+	    }
+	    ParticipantService participantService = new ParticipantService();
+	    Participant participant = participantService.findByLogin(login);
+	    if (participant == null) {
+	    	return new ResponseEntity("Participant not found.", HttpStatus.NOT_FOUND);
+	    }
+	    if (!meeting.getParticipants().contains(participant)) {
+	    	return new ResponseEntity("Participant not found on meeting's participants list.", HttpStatus.NOT_FOUND);
+	    }
+	    meetingService.deleteParticipant(meeting, participant);
+	    return new ResponseEntity<Participant>(participant, HttpStatus.OK); 
+	}
+	
 }

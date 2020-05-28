@@ -49,4 +49,12 @@ public class MeetingService {
 		transaction.commit();
 		return participant;
 	}
+	
+	public Meeting deleteParticipant(Meeting meeting, Participant participant) {
+		Transaction transaction = this.session.beginTransaction();
+		meeting.getParticipants().remove(participant);
+		session.save(meeting);
+		transaction.commit();
+		return meeting;
+	}
 }

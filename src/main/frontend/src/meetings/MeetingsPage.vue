@@ -40,7 +40,9 @@
 				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             removeMeetingParticipant(meeting) {
-                meeting.participants.splice(meeting.participants.indexOf(this.username), 1);
+				var link = 'meetings/' + meeting.id + '/' + this.username;
+                this.$http.delete(link);
+				this.$http.get('meetings').then(response => {this.meetings = response.data});
             },
             deleteMeeting(meeting) {
 				var link = 'meetings/' + meeting.id;
